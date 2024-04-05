@@ -1,0 +1,130 @@
+.papper {
+  display: flex;
+  flex-wrap: wrap;
+  /* Permite que los elementos se envuelvan en varias líneas */
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 10px;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 200vh;
+  min-height: 80vh;
+  background: #ffffff;
+  background-image: linear-gradient(#ffffff 1.1rem, #ccc 1.2rem);
+  background-size: 100% 1.2rem;
+  border-radius: 10px;
+  cursor: move;
+}
+
+/* Ajusta el tamaño y el espacio entre las notas según tus necesidades */
+.papper>* {
+  flex: 0 0 calc(33.3333% - 20px);
+  /* Calcula el ancho de cada columna y resta el margen */
+  margin: 10px;
+}
+
+.papper::before,
+.papper::after {
+  position: absolute;
+  content: "";
+  bottom: 10px;
+  width: 40%;
+  height: 10px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.7);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.papper::before {
+  left: 15px;
+  transform: skew(-5deg) rotate(-5deg);
+}
+
+.papper::after {
+  right: 15px;
+  transform: skew(5deg) rotate(5deg);
+}
+
+.papper:hover::before,
+.papper:hover::after {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+/* this card is inspired form this - https://georgefrancis.dev/ */
+
+.card {
+  --border-radius: 0.75rem;
+  --primary-color: #19aceb;
+  --secondary-color: #3c3852;
+  width: 210px;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  background: #feff9c;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
+  position: relative;
+  font-family: arial, sans-serif;
+}
+
+.card>*+* {
+  margin-top: 1.1em;
+}
+
+.card .card__content {
+  color: var(--secondary-color);
+  font-size: 0.86rem;
+}
+
+.card .card__title {
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card .card__date {
+  color: #19aceb;
+  font-size: 0.8rem;
+}
+
+.card .card__arrow {
+  position: absolute;
+  background: var(--primary-color);
+  padding: 0.4rem;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  bottom: 0;
+  right: 0;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card svg {
+  transition: 0.2s;
+}
+
+/* hover */
+.card:hover .card__title {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.card:hover .card__arrow {
+  background: #c11e1e;
+}
+
+.card:hover .card__arrow svg {
+  transform: translateX(3px);
+}
+
+.input-field {
+  background: none;
+  border: 1px solid rgb(58, 58, 58);
+  outline: none;
+  width: 100%;
+
+}
